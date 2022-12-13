@@ -21,7 +21,9 @@ import axios from 'axios';
 import { validatEemail } from '../constants';
 const expirationDate = localStorage.getItem("expirationDate")
 export const expiry=new Date(expirationDate).getTime() - new Date().getTime()
-export const headers={'headers':{ Authorization:`JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwOTY0ODQ3LCJqdGkiOiJlNzQ1ZGFlMGMwODg0ZGYzYTQ4NTcwMGM3ODE0N2IxYSIsInVzZXJfaWQiOjF9.POFqNgJU6u5tNxa_toDgUlHvjDY8duu7gUonr6jMtkw`,'Content-Type': 'application/json' }}
+export const headers={headers: {
+    'Content-Type': 'application/json'
+}}
 
 export const checkAuthenticated = () => async dispatch => {
     if (localStorage.getItem('access')) {
