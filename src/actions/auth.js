@@ -47,90 +47,7 @@ export const checkAuthenticated = () => async dispatch => {
     }
 };
 
-export const googleAuthenticate = (state, code) => async dispatch => {
-    if (state && code) {
-        const config = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        };
 
-        const details = {
-            'state': state,
-            'code': code
-        };
-
-        const formBody = Object.keys(details).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(details[key])).join('&');
-
-        try {
-            const res = await axios.post(`https://web-production-d411.up.railway.app/auth/o/google-oauth2/?${formBody}`, config);
-            dispatch({
-                type: GOOGLE_AUTH_SUCCESS,
-                payload: res.data
-            });
-
-        } catch (err) {
-            dispatch({
-                type: GOOGLE_AUTH_FAIL
-            });
-        }
-    }
-};
-export const responseGoogle = (response) => async dispatch => {
-    const res=await axios.post('https://web-production-d411.up.railway.app/api-auth/convert-token', {
-        token: response.accessToken,
-        backend: "google-oauth2",
-        grant_type: "convert_token",
-        client_id: "456152692700-qape5ita2bvpgdb8rpnb5bkltg8mhpus.apps.googleusercontent.com",
-        client_secret: "zg1qSsLmVaKs9d4XLcG3LXPk7p61jdU5k0LEepWyGwrokIuEmlgXxANZPTl32vLZK55XDS2LZAcrhOjDK2wZjsvbAsBW4tybAR6EVXbbsQMs8OpxCNHT4GU8FCRjiJt8",
-    })
-    
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-    const res1= await axios.post(loginURL,JSON.stringify({token:res.data.access_token}), config)
-    const token = res1.data.access;
-    localStorage.setItem('token',token);
-	window.location.href="/"
-    dispatch({
-        type: GOOGLE_AUTH_SUCCESS,
-        payload: res.data
-    });
-}
-
-
-export const responseFb = (accessToken) => async dispatch =>{
-    try {
-    const res=await axios.post('https://web-production-d411.up.railway.app/api-auth/convert-token', {
-        token: accessToken,
-        backend: "facebook",
-        grant_type: "convert_token",
-        client_id: "Ae9Jn7CtA9wrHFvOdTtsFHyzp2iJOxAHDr2VE4Kb",
-        client_secret: "zg1qSsLmVaKs9d4XLcG3LXPk7p61jdU5k0LEepWyGwrokIuEmlgXxANZPTl32vLZK55XDS2LZAcrhOjDK2wZjsvbAsBW4tybAR6EVXbbsQMs8OpxCNHT4GU8FCRjiJt8",
-        })
-        
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
-        const res1= await axios.post(loginURL,JSON.stringify({token:res.data.access_token}), config)
-        const token = res1.data.access;
-        localStorage.setItem('token',token);
-        dispatch({
-            type: FACEBOOK_AUTH_SUCCESS,
-            payload: res.data
-        });
-	window.location.href="/"
-    }
-    catch (err) {
-        dispatch({
-            type: FACEBOOK_AUTH_FAIL
-        });
-    }
-};
 
 export const loginotp = (user_id) => async dispatch =>{
     const config = {
@@ -140,7 +57,7 @@ export const loginotp = (user_id) => async dispatch =>{
     };
    
     try {
-        const res = await axios.post('https://web-production-d411.up.railway.app/api/v4/login', JSON.stringify({user_id:user_id}), config);
+        const res = await axios.post(loginURL, JSON.stringify({user_id:user_id}), config);
 
         dispatch({
             type: LOGIN_SUCCESS,
@@ -158,36 +75,7 @@ export const loginotp = (user_id) => async dispatch =>{
         })
     }
 }
-export const facebookAuthenticate = (state, code) => async dispatch => {
-    if (state && code && !localStorage.getItem('access')) {
-        const config = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        };
 
-        const details = {
-            'state': state,
-            'code': code
-        };
-
-        const formBody = Object.keys(details).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(details[key])).join('&');
-
-        try {
-            const res = await axios.post(`https://web-production-d411.up.railway.app/auth/o/facebook/?${formBody}`, config);
-
-            dispatch({
-                type: FACEBOOK_AUTH_SUCCESS,
-                payload: res.data
-            });
-
-        } catch (err) {
-            dispatch({
-                type: FACEBOOK_AUTH_FAIL
-            });
-        }
-    }
-};
 
 export const login = (username, password) => async dispatch => {
     const config = {
@@ -225,7 +113,7 @@ export const signup = (username, email, password,phone) => async dispatch => {
     const body = JSON.stringify({ username, email, password, profile:{phone} });
    
     try {
-        const res = await axios.post(`https://web-production-d411.up.railway.app/api/v4/register`, body, config);
+        const res = await axios.post(`milionaireapp-production.up.railway.app/api/v1/register`, body, config);
 
         dispatch({
             type: SIGNUP_SUCCESS,
@@ -248,7 +136,7 @@ export const reset_password = (email) => async dispatch => {
     const body = JSON.stringify({ email });
 
     try {
-        await axios.post(`https://web-production-d411.up.railway.app/api/v4/reset/password/`, body, config);
+        await axios.post(`milionaireapp-production.up.railway.app/api/v1/reset/password/`, body, config);
 
         dispatch({
             type: PASSWORD_RESET_SUCCESS
@@ -270,7 +158,7 @@ export const reset_password_confirm = (uidb64, token, password) => async dispatc
     const body = JSON.stringify({ uidb64, token,password});
 
     try {
-        await axios.post(`https://web-production-d411.up.railway.app/api/v4/password-reset/${uidb64}/${token}/`, body, config);
+        await axios.post(`milionaireapp-production.up.railway.app/api/v1/password-reset/${uidb64}/${token}/`, body, config);
 
         dispatch({
             type: PASSWORD_RESET_CONFIRM_SUCCESS
