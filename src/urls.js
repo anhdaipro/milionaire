@@ -1,0 +1,14 @@
+export const api='http://localhost:8000/api'
+export const originURL='http://localhost:8000'
+export const LoginsocialURL=`${api}/v1/oauth/login`
+export const refreshTokenURL=`${api}/v1/refresh`
+export const verifyemailURL=`${api}/v3/verify/email`
+export const verifyphoneURL=`${api}/v3/verify/phone`
+export const sendOTPemailURL=`${api}/v3/send-otp/email`
+export const sendOTPphoneURL=`${api}/v3/send-otp/phone`
+export const checkuserURL=`${api}/v3/check/user`
+export const addquestionURL=`${api}/v1/addquestion`
+export const answerURL=`${api}/v1/answer`
+export const registerURL=`${api}/v3/register`
+export const loginURL=`${api}/v1/login`
+export const userinfoURL=`${api}/v1/user/info`
