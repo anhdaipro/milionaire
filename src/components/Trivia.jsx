@@ -42,17 +42,20 @@ export default function Trivia({
     delay(2000, () => {
       if(data.correct){
         correctAnswer();
-        delay(1000, () => {
-          if(data.success){
+        if(data.success){
+          delay(1000, () => {
             setTimeOut(true);
-          }
-          else{
-          setSelectedAnswer(null);
-          correctAnswer();
-          setQuestionNumber(data.questionNumber);
-          setdata(data)
-          }
-        })
+          });
+        }
+        else{
+          delay(1000, () => {
+            setSelectedAnswer(null);
+            correctAnswer();
+            setQuestionNumber(data.questionNumber);
+            setdata(data)
+          })
+        }
+        
       }
       else{
         wrongAnswer();
