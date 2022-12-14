@@ -14,7 +14,7 @@ export default function Timer({ setTimeOut, questionNumber,selectedAnswer}) {
   }, [timer, setTimeOut,selectedAnswer]);
 
   useEffect(() => {
-    setTimer(60);
+    setTimer(45);
   }, [questionNumber]);
   return timer;
 }
