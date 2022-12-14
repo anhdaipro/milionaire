@@ -44,6 +44,7 @@ export default function Trivia({
       if(data.correct){
         correctAnswer();
         if(data.success){
+          console.log('ok')
           delay(1000, () => {
             setSucess(true);
             setTimeOut(true);
