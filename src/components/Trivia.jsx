@@ -11,9 +11,10 @@ export default function Trivia({
   setTimeOut,
   setSucess,
   setdata,
+  selectedAnswer, 
+  setSelectedAnswer,
   setQuestionNumber,
 }) {
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [className, setClassName] = useState("answer");
   const [letsPlay] = useSound(play);
   const [correctAnswer] = useSound(correct);

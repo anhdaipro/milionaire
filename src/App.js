@@ -14,6 +14,7 @@ function App() {
   const [earned, setEarned] = useState(0);
   const [question,setQuestion]=useState({})
   const [success,setSucces]=useState(false)
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const moneyPyramid = useMemo(
     () =>
       [
@@ -71,6 +72,7 @@ function App() {
                   <div className="timer">
                     <Timer
                       setTimeOut={setTimeOut}
+                      selectedAnswer={selectedAnswer}
                       questionNumber={questionNumber}
                     />
                   </div>
@@ -82,6 +84,8 @@ function App() {
                     setQuestionNumber={setQuestionNumber}
                     setTimeOut={setTimeOut}
                     setSucess={data=>setSucces(data)}
+                    selectedAnswer={selectedAnswer}
+                    setSelectedAnswer={data=>setSelectedAnswer(data)}
                     setdata={data=>setdata(data)}
                   />
                 </div>
