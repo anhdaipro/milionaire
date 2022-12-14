@@ -43,8 +43,9 @@ export default function Trivia({
     delay(2000, () => {
       if(data.correct){
         correctAnswer();
+        console.log(data)
         if(data.success){
-          console.log('ok')
+          
           delay(1000, () => {
             setSucess(true);
             setTimeOut(true);
@@ -68,7 +69,7 @@ export default function Trivia({
       }
     })
     
-    console.log(data)
+    
     
   };
   return (
