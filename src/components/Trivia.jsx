@@ -48,6 +48,7 @@ export default function Trivia({
           
           delay(1000, () => {
             setSucess(true);
+            setSelectedAnswer(null);
             setTimeOut(true);
           });
         }
