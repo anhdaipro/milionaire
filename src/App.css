@@ -102,6 +102,7 @@
   width: 40%;
   padding: 10px;
   margin: 0 10px 20px 10px;
+  box-sizing: border-box;
   text-align: center;
   background: linear-gradient(#0e0124, #22074d);
   border: 1px solid white;
@@ -213,4 +214,28 @@
   cursor: pointer;
   font-size: 18px;
   font-weight: 500;
+}
+.support-question{
+  width:100%;
+  display: flex;
+  margin-top: 16px;
+  margin-right:16px;
+  justify-content: flex-end;
+}
+.btn-support{
+  width: 60px;
+  height: 30px;
+  background-color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 8px;
+}
+button:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
 }

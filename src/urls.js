@@ -8,6 +8,7 @@ export const sendOTPemailURL=`${api}/v3/send-otp/email`
 export const sendOTPphoneURL=`${api}/v3/send-otp/phone`
 export const checkuserURL=`${api}/v3/check/user`
 export const addquestionURL=`${api}/v1/addquestion`
+export const supportquestionURL=`${api}/v1/support`
 export const answerURL=`${api}/v1/answer`
 export const registerURL=`${api}/v3/register`
 export const loginURL=`${api}/v1/login`

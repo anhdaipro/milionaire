@@ -14,6 +14,8 @@ export default function Trivia({
   selectedAnswer, 
   setSelectedAnswer,
   setQuestionNumber,
+  setChoicehiden,
+  choicehiden
 }) {
   const [className, setClassName] = useState("answer");
   const [letsPlay] = useSound(play);
@@ -58,6 +60,7 @@ export default function Trivia({
             correctAnswer();
             setQuestionNumber(data.questionNumber);
             setdata(data)
+            setChoicehiden([])
           })
         }
         
@@ -82,7 +85,7 @@ export default function Trivia({
             className={selectedAnswer === a ? className : "answer"}
             onClick={() => !selectedAnswer && handleClick(a)}
           >
-            {a}
+            {choicehiden.find(item=>item==a)?'':a}
           </div>
         ))}
       </div>
