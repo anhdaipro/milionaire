@@ -43,10 +43,15 @@ export default function Trivia({
       if(data.correct){
         correctAnswer();
         delay(1000, () => {
-        setSelectedAnswer(null);
-        correctAnswer();
-        setQuestionNumber(data.questionNumber);
-        setdata(data)
+          if(data.success){
+            setTimeOut(true);
+          }
+          else{
+          setSelectedAnswer(null);
+          correctAnswer();
+          setQuestionNumber(data.questionNumber);
+          setdata(data)
+          }
         })
       }
       else{
