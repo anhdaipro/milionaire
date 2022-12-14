@@ -94,8 +94,8 @@ function App() {
               {timeOut ? (
               <div>
               <h1 className="endText">You earned: ${earned}</h1>
-              {success && (<div>Chúc mừng bạn đã chiến thắng trò chơi</div>)}
-              <button onClick={playagain} className="playaginButton">Chơi lại</button>
+              {success && (<div>Congratulations on winning the game!</div>)}
+              <button onClick={playagain} className="playaginButton">Play again</button>
               </div>
               
             ) : (
