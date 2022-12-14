@@ -46,6 +46,7 @@ function App() {
     const res= await axios.post(addquestionURL,JSON.stringify(),headers)
     setTimeOut(null)
     setEarned(0)
+    setSelectedAnswer(null);
     setSucces(false)
     setQuestionNumber(1)
     setQuestion(res.data)
