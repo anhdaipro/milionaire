@@ -9,6 +9,7 @@ import { headers } from "../actions/auth";
 export default function Trivia({
   question,
   setTimeOut,
+  setSucess,
   setdata,
   setQuestionNumber,
 }) {
@@ -44,6 +45,7 @@ export default function Trivia({
         correctAnswer();
         if(data.success){
           delay(1000, () => {
+            setSucess(true);
             setTimeOut(true);
           });
         }

@@ -13,7 +13,7 @@ function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [earned, setEarned] = useState(0);
   const [question,setQuestion]=useState({})
-  
+  const [success,setSucces]=useState(false)
   const moneyPyramid = useMemo(
     () =>
       [
@@ -45,6 +45,7 @@ function App() {
     const res= await axios.post(addquestionURL,JSON.stringify(),headers)
     setTimeOut(null)
     setEarned(0)
+    setSucces(false)
     setQuestionNumber(1)
     setQuestion(res.data)
   };
@@ -61,6 +62,7 @@ function App() {
             {timeOut ? (
               <div>
               <h1 className="endText">You earned: ${earned}</h1>
+              {success && (<div>Chúc mừng bạn đã chiến thắng trò chơi</div>)}
               <button onClick={playagain} className="playaginButton">Chơi lại</button>
               </div>
             ) : (
@@ -79,6 +81,7 @@ function App() {
                     questionNumber={questionNumber}
                     setQuestionNumber={setQuestionNumber}
                     setTimeOut={setTimeOut}
+                    setSucess={data=>setSucces(data)}
                     setdata={data=>setdata(data)}
                   />
                 </div>
