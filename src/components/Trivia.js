@@ -6,6 +6,7 @@ import wrong from "../sounds/wrong.mp3";
 import axios from "axios"
 import { answerURL } from "../urls";
 import { headers } from "../actions/auth";
+
 export default function Trivia({
   question,
   setTimeOut,
@@ -33,7 +34,7 @@ export default function Trivia({
   const handleClick = async (a) => {
     setSelectedAnswer(a);
     setClassName("answer active");
-    const form={question_id:question.question.id,questionuserid:question.questionuserid,answer:a}
+    const form={question_id:question.question.id,questionuserid:question.questionuserid,"answer":a}
     const res=await axios.post(`${answerURL}/${question.id}`,JSON.stringify(form),headers)
     const  data=res.data
       if(data.correct){
