@@ -161,12 +161,9 @@
 }
 
 .endText {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  color:#333;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .start {
@@ -239,4 +236,27 @@
 button:disabled{
   opacity: 0.6;
   cursor: not-allowed;
+}
+.modal{
+position: fixed;
+top:0;
+left:0;
+right:0;
+height: 100%;
+display: flex;
+align-items: center;
+background: rgba(0,0,0,.5);
+justify-content: center;
+}
+.modal-content{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color:#333;
+  border-radius: 12px;
+  z-index:1000;
+  min-width: 320px;
+  padding:16px 0
 }

@@ -92,10 +92,12 @@ function App() {
               
             </div>
               {timeOut ? (
-              <div>
-              <h1 className="endText">{username} earned: ${success?1500:earned}</h1>
-              {success && (<div>Congratulations on winning the game!</div>)}
-              <button onClick={playagain} className="playaginButton">Play again</button>
+              <div className="modal">
+                <div className="modal-content">
+                  <h1 className="endText">{username} earned: ${success?1500:earned}</h1>
+                  {success && (<div>Congratulations on winning the game!</div>)}
+                  <button onClick={playagain} className="playaginButton">Play again</button>
+                </div>
               </div>
               
             ) : (
