@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Timer({ setTimeOut, questionNumber,selectedAnswer}) {
+export default function Timer({ setTimeOut, questionNumber,selectedAnswer,changequestion}) {
   const [timer, setTimer] = useState(45);
 
   useEffect(() => {
@@ -15,6 +15,6 @@ export default function Timer({ setTimeOut, questionNumber,selectedAnswer}) {
 
   useEffect(() => {
     setTimer(45);
-  }, [questionNumber]);
+  }, [questionNumber,changequestion]);
   return timer;
 }

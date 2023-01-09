@@ -106,6 +106,7 @@ function App() {
                   <div className="timer">
                     <Timer
                       setTimeOut={setTimeOut}
+                      changequestion={changequestion}
                       selectedAnswer={selectedAnswer}
                       questionNumber={questionNumber}
                     />
