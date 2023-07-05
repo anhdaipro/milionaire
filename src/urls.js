@@ -1,5 +1,5 @@
-export const api='https://milionaireapp-production.up.railway.app/api'
-export const originURL='https://milionaireapp-production.up.railway.app'
+export const api='https://milionnaire.onrender.com/api'
+export const originURL='https://milionnaire.onrender.com'
 export const LoginsocialURL=`${api}/v1/oauth/login`
 export const refreshTokenURL=`${api}/v1/refresh`
 export const verifyemailURL=`${api}/v3/verify/email`
