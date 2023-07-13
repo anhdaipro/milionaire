@@ -37,21 +37,13 @@ export default function Trivia({
     const form={question_id:question.question.id,questionuserid:question.questionuserid,"answer":a}
     const res=await axios.post(`${answerURL}/${question.id}`,JSON.stringify(form),headers)
     const  data=res.data
-      if(data.correct){
-        setClassName("answer correct");
-      }
-      else{
-        setClassName("answer wrong")
-      }
-    
+    setClassName(data.correct ? 'answer correct' : 'answer wrong')
     delay(2000, () => {
       if(data.correct){
         correctAnswer();
         if(data.success){
-          
           delay(1000, () => {
             setSucess(true);
-           
             setTimeOut(true);
           });
         }
@@ -63,7 +55,6 @@ export default function Trivia({
             setChoicehiden([])
           })
         }
-        
       }
       else{
         wrongAnswer();
