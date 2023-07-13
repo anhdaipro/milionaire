@@ -57,8 +57,7 @@ export default function Trivia({
         }
         else{
           delay(1000, () => {
-            setSelectedAnswer(null);
-            correctAnswer();
+            setSelectedAnswer(null)
             setQuestionNumber(data.questionNumber);
             setdata(data)
             setChoicehiden([])
